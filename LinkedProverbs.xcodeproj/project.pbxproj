@@ -1,0 +1,495 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A7AC36F189AE05200A4E99F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7AC36E189AE05200A4E99F /* Foundation.framework */; };
+		1A7AC371189AE05200A4E99F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7AC370189AE05200A4E99F /* CoreGraphics.framework */; };
+		1A7AC373189AE05200A4E99F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7AC372189AE05200A4E99F /* UIKit.framework */; };
+		1A7AC379189AE05200A4E99F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A7AC377189AE05200A4E99F /* InfoPlist.strings */; };
+		1A7AC37B189AE05200A4E99F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7AC37A189AE05200A4E99F /* main.m */; };
+		1A7AC37F189AE05200A4E99F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7AC37E189AE05200A4E99F /* AppDelegate.m */; };
+		1A7AC382189AE05200A4E99F /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A7AC380189AE05200A4E99F /* Main_iPhone.storyboard */; };
+		1A7AC385189AE05200A4E99F /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A7AC383189AE05200A4E99F /* Main_iPad.storyboard */; };
+		1A7AC388189AE05300A4E99F /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7AC387189AE05300A4E99F /* FirstViewController.m */; };
+		1A7AC38B189AE05300A4E99F /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7AC38A189AE05300A4E99F /* SecondViewController.m */; };
+		1A7AC38D189AE05300A4E99F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A7AC38C189AE05300A4E99F /* Images.xcassets */; };
+		1A7AC394189AE05300A4E99F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7AC393189AE05300A4E99F /* XCTest.framework */; };
+		1A7AC395189AE05300A4E99F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7AC36E189AE05200A4E99F /* Foundation.framework */; };
+		1A7AC396189AE05300A4E99F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7AC372189AE05200A4E99F /* UIKit.framework */; };
+		1A7AC39E189AE05300A4E99F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A7AC39C189AE05300A4E99F /* InfoPlist.strings */; };
+		1A7AC3A0189AE05300A4E99F /* LinkedProverbsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7AC39F189AE05300A4E99F /* LinkedProverbsTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1A7AC397189AE05300A4E99F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A7AC363189AE05200A4E99F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A7AC36A189AE05200A4E99F;
+			remoteInfo = LinkedProverbs;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1A7AC36B189AE05200A4E99F /* LinkedProverbs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkedProverbs.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A7AC36E189AE05200A4E99F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1A7AC370189AE05200A4E99F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1A7AC372189AE05200A4E99F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1A7AC376189AE05200A4E99F /* LinkedProverbs-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LinkedProverbs-Info.plist"; sourceTree = "<group>"; };
+		1A7AC378189AE05200A4E99F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1A7AC37A189AE05200A4E99F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1A7AC37C189AE05200A4E99F /* LinkedProverbs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LinkedProverbs-Prefix.pch"; sourceTree = "<group>"; };
+		1A7AC37D189AE05200A4E99F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1A7AC37E189AE05200A4E99F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1A7AC381189AE05200A4E99F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		1A7AC384189AE05200A4E99F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		1A7AC386189AE05200A4E99F /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		1A7AC387189AE05300A4E99F /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		1A7AC389189AE05300A4E99F /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		1A7AC38A189AE05300A4E99F /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		1A7AC38C189AE05300A4E99F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1A7AC392189AE05300A4E99F /* LinkedProverbsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkedProverbsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A7AC393189AE05300A4E99F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		1A7AC39B189AE05300A4E99F /* LinkedProverbsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LinkedProverbsTests-Info.plist"; sourceTree = "<group>"; };
+		1A7AC39D189AE05300A4E99F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1A7AC39F189AE05300A4E99F /* LinkedProverbsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LinkedProverbsTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1A7AC368189AE05200A4E99F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A7AC371189AE05200A4E99F /* CoreGraphics.framework in Frameworks */,
+				1A7AC373189AE05200A4E99F /* UIKit.framework in Frameworks */,
+				1A7AC36F189AE05200A4E99F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A7AC38F189AE05300A4E99F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A7AC394189AE05300A4E99F /* XCTest.framework in Frameworks */,
+				1A7AC396189AE05300A4E99F /* UIKit.framework in Frameworks */,
+				1A7AC395189AE05300A4E99F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A7AC362189AE05200A4E99F = {
+			isa = PBXGroup;
+			children = (
+				1A7AC374189AE05200A4E99F /* LinkedProverbs */,
+				1A7AC399189AE05300A4E99F /* LinkedProverbsTests */,
+				1A7AC36D189AE05200A4E99F /* Frameworks */,
+				1A7AC36C189AE05200A4E99F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1A7AC36C189AE05200A4E99F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1A7AC36B189AE05200A4E99F /* LinkedProverbs.app */,
+				1A7AC392189AE05300A4E99F /* LinkedProverbsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1A7AC36D189AE05200A4E99F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A7AC36E189AE05200A4E99F /* Foundation.framework */,
+				1A7AC370189AE05200A4E99F /* CoreGraphics.framework */,
+				1A7AC372189AE05200A4E99F /* UIKit.framework */,
+				1A7AC393189AE05300A4E99F /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1A7AC374189AE05200A4E99F /* LinkedProverbs */ = {
+			isa = PBXGroup;
+			children = (
+				1A7AC37D189AE05200A4E99F /* AppDelegate.h */,
+				1A7AC37E189AE05200A4E99F /* AppDelegate.m */,
+				1A7AC380189AE05200A4E99F /* Main_iPhone.storyboard */,
+				1A7AC383189AE05200A4E99F /* Main_iPad.storyboard */,
+				1A7AC386189AE05200A4E99F /* FirstViewController.h */,
+				1A7AC387189AE05300A4E99F /* FirstViewController.m */,
+				1A7AC389189AE05300A4E99F /* SecondViewController.h */,
+				1A7AC38A189AE05300A4E99F /* SecondViewController.m */,
+				1A7AC38C189AE05300A4E99F /* Images.xcassets */,
+				1A7AC375189AE05200A4E99F /* Supporting Files */,
+			);
+			path = LinkedProverbs;
+			sourceTree = "<group>";
+		};
+		1A7AC375189AE05200A4E99F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1A7AC376189AE05200A4E99F /* LinkedProverbs-Info.plist */,
+				1A7AC377189AE05200A4E99F /* InfoPlist.strings */,
+				1A7AC37A189AE05200A4E99F /* main.m */,
+				1A7AC37C189AE05200A4E99F /* LinkedProverbs-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1A7AC399189AE05300A4E99F /* LinkedProverbsTests */ = {
+			isa = PBXGroup;
+			children = (
+				1A7AC39F189AE05300A4E99F /* LinkedProverbsTests.m */,
+				1A7AC39A189AE05300A4E99F /* Supporting Files */,
+			);
+			path = LinkedProverbsTests;
+			sourceTree = "<group>";
+		};
+		1A7AC39A189AE05300A4E99F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1A7AC39B189AE05300A4E99F /* LinkedProverbsTests-Info.plist */,
+				1A7AC39C189AE05300A4E99F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1A7AC36A189AE05200A4E99F /* LinkedProverbs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A7AC3A3189AE05300A4E99F /* Build configuration list for PBXNativeTarget "LinkedProverbs" */;
+			buildPhases = (
+				1A7AC367189AE05200A4E99F /* Sources */,
+				1A7AC368189AE05200A4E99F /* Frameworks */,
+				1A7AC369189AE05200A4E99F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LinkedProverbs;
+			productName = LinkedProverbs;
+			productReference = 1A7AC36B189AE05200A4E99F /* LinkedProverbs.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1A7AC391189AE05300A4E99F /* LinkedProverbsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A7AC3A6189AE05300A4E99F /* Build configuration list for PBXNativeTarget "LinkedProverbsTests" */;
+			buildPhases = (
+				1A7AC38E189AE05300A4E99F /* Sources */,
+				1A7AC38F189AE05300A4E99F /* Frameworks */,
+				1A7AC390189AE05300A4E99F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1A7AC398189AE05300A4E99F /* PBXTargetDependency */,
+			);
+			name = LinkedProverbsTests;
+			productName = LinkedProverbsTests;
+			productReference = 1A7AC392189AE05300A4E99F /* LinkedProverbsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1A7AC363189AE05200A4E99F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Pavel Akhrameev";
+				TargetAttributes = {
+					1A7AC391189AE05300A4E99F = {
+						TestTargetID = 1A7AC36A189AE05200A4E99F;
+					};
+				};
+			};
+			buildConfigurationList = 1A7AC366189AE05200A4E99F /* Build configuration list for PBXProject "LinkedProverbs" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1A7AC362189AE05200A4E99F;
+			productRefGroup = 1A7AC36C189AE05200A4E99F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1A7AC36A189AE05200A4E99F /* LinkedProverbs */,
+				1A7AC391189AE05300A4E99F /* LinkedProverbsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1A7AC369189AE05200A4E99F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A7AC385189AE05200A4E99F /* Main_iPad.storyboard in Resources */,
+				1A7AC38D189AE05300A4E99F /* Images.xcassets in Resources */,
+				1A7AC382189AE05200A4E99F /* Main_iPhone.storyboard in Resources */,
+				1A7AC379189AE05200A4E99F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A7AC390189AE05300A4E99F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A7AC39E189AE05300A4E99F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1A7AC367189AE05200A4E99F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A7AC38B189AE05300A4E99F /* SecondViewController.m in Sources */,
+				1A7AC37F189AE05200A4E99F /* AppDelegate.m in Sources */,
+				1A7AC388189AE05300A4E99F /* FirstViewController.m in Sources */,
+				1A7AC37B189AE05200A4E99F /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A7AC38E189AE05300A4E99F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A7AC3A0189AE05300A4E99F /* LinkedProverbsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1A7AC398189AE05300A4E99F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A7AC36A189AE05200A4E99F /* LinkedProverbs */;
+			targetProxy = 1A7AC397189AE05300A4E99F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1A7AC377189AE05200A4E99F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A7AC378189AE05200A4E99F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1A7AC380189AE05200A4E99F /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A7AC381189AE05200A4E99F /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		1A7AC383189AE05200A4E99F /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A7AC384189AE05200A4E99F /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		1A7AC39C189AE05300A4E99F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A7AC39D189AE05300A4E99F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1A7AC3A1189AE05300A4E99F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1A7AC3A2189AE05300A4E99F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1A7AC3A4189AE05300A4E99F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LinkedProverbs/LinkedProverbs-Prefix.pch";
+				INFOPLIST_FILE = "LinkedProverbs/LinkedProverbs-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1A7AC3A5189AE05300A4E99F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LinkedProverbs/LinkedProverbs-Prefix.pch";
+				INFOPLIST_FILE = "LinkedProverbs/LinkedProverbs-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		1A7AC3A7189AE05300A4E99F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LinkedProverbs.app/LinkedProverbs";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LinkedProverbs/LinkedProverbs-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "LinkedProverbsTests/LinkedProverbsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		1A7AC3A8189AE05300A4E99F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LinkedProverbs.app/LinkedProverbs";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LinkedProverbs/LinkedProverbs-Prefix.pch";
+				INFOPLIST_FILE = "LinkedProverbsTests/LinkedProverbsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1A7AC366189AE05200A4E99F /* Build configuration list for PBXProject "LinkedProverbs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A7AC3A1189AE05300A4E99F /* Debug */,
+				1A7AC3A2189AE05300A4E99F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A7AC3A3189AE05300A4E99F /* Build configuration list for PBXNativeTarget "LinkedProverbs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A7AC3A4189AE05300A4E99F /* Debug */,
+				1A7AC3A5189AE05300A4E99F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1A7AC3A6189AE05300A4E99F /* Build configuration list for PBXNativeTarget "LinkedProverbsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A7AC3A7189AE05300A4E99F /* Debug */,
+				1A7AC3A8189AE05300A4E99F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1A7AC363189AE05200A4E99F /* Project object */;
+}
