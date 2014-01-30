@@ -207,6 +207,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Pavel Akhrameev";
 				TargetAttributes = {
+					1A7AC36A189AE05200A4E99F = {
+						DevelopmentTeam = BM9VTE5GML;
+					};
 					1A7AC391189AE05300A4E99F = {
 						TestTargetID = 1A7AC36A189AE05200A4E99F;
 					};
@@ -398,6 +401,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LinkedProverbs/LinkedProverbs-Prefix.pch";
 				INFOPLIST_FILE = "LinkedProverbs/LinkedProverbs-Info.plist";
@@ -411,6 +415,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LinkedProverbs/LinkedProverbs-Prefix.pch";
 				INFOPLIST_FILE = "LinkedProverbs/LinkedProverbs-Info.plist";
