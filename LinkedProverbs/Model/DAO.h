@@ -10,4 +10,8 @@
 
 @interface DAO : NSObject
 
++ (instancetype) sharedInstance;
+
+- (NSArray *) proverbs;
+
 @end

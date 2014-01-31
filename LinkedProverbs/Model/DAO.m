@@ -7,6 +7,7 @@
 //
 
 #import "DAO.h"
+#import "Proverb.h"
 
 @implementation DAO
 
@@ -26,6 +27,12 @@
                       __sharedInstance =  [DAO  new];
                   });
     return __sharedInstance ;
+}
+
+#pragma mark - Proverbs getters
+
+- (NSArray *) proverbs {
+    return [Proverb MR_findAll];
 }
 
 @end
