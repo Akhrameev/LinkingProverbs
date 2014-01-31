@@ -125,19 +125,36 @@
     if (selectedProverbs.count >= 1) {
         NSString *imgName = @"star minus.png";
         NSString *toolbarImageName = [imgName stringByAppendingString:@" toolbar cached"];
-        UIImage *starButtonImage = [[UIImageCache sharedInstance] imageCachedWithName:toolbarImageName];
-        if (!starButtonImage) {
-            starButtonImage = [[[UIImage imageNamed:imgName] resizeToSize:CGSizeMake(48, 48)] imageTintedWithColor:[UIColor flatYellowColor]];
-            [[UIImageCache sharedInstance] cacheImage:starButtonImage withName:toolbarImageName];
+        UIImage *unstarButtonImage = [[UIImageCache sharedInstance] imageCachedWithName:toolbarImageName];
+        if (!unstarButtonImage) {
+            unstarButtonImage = [[[UIImage imageNamed:imgName] resizeToSize:CGSizeMake(48, 48)] imageTintedWithColor:[UIColor flatYellowColor]];
+            [[UIImageCache sharedInstance] cacheImage:unstarButtonImage withName:toolbarImageName];
         }
-        UIButton *starButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        starButton.bounds = CGRectMake( 0, 0, starButtonImage.size.width, starButtonImage.size.height) ;
-        [starButton setImage:starButtonImage forState:UIControlStateNormal];
-        [starButton addTarget:self
+        UIButton *unstarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        unstarButton.bounds = CGRectMake( 0, 0, unstarButtonImage.size.width, unstarButtonImage.size.height) ;
+        [unstarButton setImage:unstarButtonImage forState:UIControlStateNormal];
+        [unstarButton addTarget:self
                        action:@selector(unstarSelectedClick:)
              forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem *bookmark = [[UIBarButtonItem alloc] initWithCustomView:starButton];
-        [items addObject:bookmark];
+        UIBarButtonItem *unbookmark = [[UIBarButtonItem alloc] initWithCustomView:unstarButton];
+        [items addObject:unbookmark];
+    }
+    if (selectedProverbs.count >= 1) {
+        NSString *imgName = @"plus.png";
+        NSString *toolbarImageName = [imgName stringByAppendingString:@" toolbar cached"];
+        UIImage *addTagButtonImage = [[UIImageCache sharedInstance] imageCachedWithName:toolbarImageName];
+        if (!addTagButtonImage) {
+            addTagButtonImage = [[[UIImage imageNamed:imgName] resizeToSize:CGSizeMake(48, 48)] imageTintedWithColor:[UIColor flatYellowColor]];
+            [[UIImageCache sharedInstance] cacheImage:addTagButtonImage withName:toolbarImageName];
+        }
+        UIButton *addTagButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        unstarButton.bounds = CGRectMake( 0, 0, addTagButtonImage.size.width, addTagButtonImage.size.height) ;
+        [addTagButton setImage:addTagButtonImage forState:UIControlStateNormal];
+        [addTagButton addTarget:self
+                         action:@selector(addTagSelectedClick:)
+               forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *addtag = [[UIBarButtonItem alloc] initWithCustomView:addTagButton];
+        [items addObject:addtag];
     }
     self.toolbar.items = items;
 }
@@ -162,5 +179,9 @@
 
 - (void) unstarSelectedClick:(id)sender {
     [self manageStartClick:NO];
+}
+
+- (void) addTagSelectedClick:(id)sender {
+    
 }
 @end
