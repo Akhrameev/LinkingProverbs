@@ -10,5 +10,6 @@
 
 @interface UPProverbCollectionCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *starImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @end

@@ -11,6 +11,7 @@
 #import "DAO.h"
 #import "Proverb.h"
 #import "UIColor+MLPFlatColors.h"
+#import "UIImage+Resize.h"
 
 @interface FirstViewController () {
     NSArray *proverbs;
@@ -54,8 +55,7 @@
         BOOL selected = [selectedProverbs containsObject:proverb];
         proverbCell.backgroundColor = selected?[UIColor flatDarkOrangeColor]:[UIColor flatGreenColor];
         proverbCell.nameLabel.textColor = selected ? [UIColor flatDarkYellowColor]:[UIColor flatYellowColor];
-        proverbCell.nameLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        proverbCell.nameLabel.numberOfLines = 0;
+        [proverbCell.starImage setHidden:![proverb.starred isEqualToNumber:@(YES)]];
     }
     return cell;
 }
@@ -64,7 +64,9 @@
     NSArray *updatedProverbs = note.object;
     if (!updatedProverbs || [updatedProverbs isKindOfClass:[NSArray class]]) {
         proverbs = updatedProverbs;
+        selectedProverbs = nil;
         [self.collectionView reloadData];
+        [self updateToolbarButtons];
     }
 }
 
@@ -95,5 +97,37 @@
         [selectedProverbs addObject:proverb];
     }
     [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+    [self updateToolbarButtons];
+}
+
+- (void) updateToolbarButtons {
+    NSMutableArray *items = [NSMutableArray array];
+    [items addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
+    if (selectedProverbs.count >= 1) {
+        UIImage *starButtonImage = [[UIImage imageNamed:@"star plus.png"] resizeToSize:CGSizeMake(48, 48)];
+        UIButton *starButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        starButton.bounds = CGRectMake( 0, 0, starButtonImage.size.width, starButtonImage.size.height) ;
+        [starButton setImage:starButtonImage forState:UIControlStateNormal];
+        [starButton addTarget:self
+                       action:@selector(starSelectedClick:)
+             forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *bookmark = [[UIBarButtonItem alloc] initWithCustomView:starButton];
+        [items addObject:bookmark];
+    }
+    self.toolbar.items = items;
+}
+
+- (void) starSelectedClick:(id)sender {
+    __weak NSMutableSet *selectedProverbsInBlock = selectedProverbs;
+    __weak FirstViewController *selfInBlock = self;
+    [MagicalRecord saveUsingCurrentThreadContextWithBlock:^(NSManagedObjectContext *localContext) {
+        for (Proverb *pr in selectedProverbsInBlock) {
+            [pr setStarred:@(YES)];
+        }
+    } completion:^(BOOL success, NSError *error) {
+        if (selectedProverbsInBlock.count) {
+            [selfInBlock.collectionView reloadData];
+        }
+    }];
 }
 @end

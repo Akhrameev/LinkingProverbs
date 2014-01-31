@@ -10,5 +10,6 @@
 
 @interface FirstViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @end

@@ -23,6 +23,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2hk-Dl-upn">
                                 <rect key="frame" x="20" y="44" width="728" height="915"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JV6-n8-xnf">
                                     <size key="itemSize" width="300" height="150"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -44,17 +45,29 @@
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="star.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fsb-2K-h64">
+                                                    <rect key="frame" x="268" y="0.0" width="32" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="32" id="fii-zS-efA"/>
+                                                        <constraint firstAttribute="width" constant="32" id="pdV-PX-fIQ"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Fsb-2K-h64" secondAttribute="trailing" id="LYj-b2-kzc"/>
                                             <constraint firstAttribute="trailing" secondItem="UBP-Y0-O1g" secondAttribute="trailing" constant="20" id="Nck-DO-4Af"/>
                                             <constraint firstItem="UBP-Y0-O1g" firstAttribute="top" secondItem="fUy-TM-ccd" secondAttribute="top" constant="20" id="epO-1h-5vg"/>
                                             <constraint firstAttribute="bottom" secondItem="UBP-Y0-O1g" secondAttribute="bottom" constant="20" id="g1I-Wu-jfA"/>
                                             <constraint firstItem="UBP-Y0-O1g" firstAttribute="leading" secondItem="fUy-TM-ccd" secondAttribute="leading" constant="20" id="ort-US-FPg"/>
+                                            <constraint firstItem="Fsb-2K-h64" firstAttribute="top" secondItem="fUy-TM-ccd" secondAttribute="top" id="yIW-QI-Gcz"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="nameLabel" destination="UBP-Y0-O1g" id="GI3-Qf-ydB"/>
+                                            <outlet property="starImage" destination="Fsb-2K-h64" id="FZm-6T-SI1"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -78,6 +91,7 @@
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="collectionView" destination="2hk-Dl-upn" id="Yh7-YH-1Ao"/>
+                        <outlet property="toolbar" destination="iQr-d4-Ar2" id="4fp-C2-veA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -161,6 +175,7 @@
     <resources>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
+        <image name="star.png" width="128" height="128"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackOpaque"/>

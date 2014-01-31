@@ -7,6 +7,8 @@
 //
 
 #import "UPProverbCollectionCell.h"
+#import "UIImage+Tint.h"
+#import "UIColor+MLPFlatColors.h"
 
 @implementation UPProverbCollectionCell
 
@@ -16,6 +18,13 @@
         
     }
     return self;
+}
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.nameLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.nameLabel.numberOfLines = 0;
+    [self.starImage setImage:[self.starImage.image imageTintedWithColor:[UIColor flatDarkYellowColor]]];
 }
 
 @end
