@@ -10,6 +10,7 @@
 #import "UPProverbCollectionCell.h"
 #import "DAO.h"
 #import "Proverb.h"
+#import "UIColor+MLPFlatColors.h"
 
 @interface FirstViewController () {
     NSArray *proverbs;
@@ -50,8 +51,11 @@
         Proverb *proverb = [self proverbAtIndexPath:indexPath];
         UPProverbCollectionCell *proverbCell = (UPProverbCollectionCell *)cell;
         proverbCell.nameLabel.text = proverb.text;
-        proverbCell.textLabel.text = proverb.descriptionText;
-        proverbCell.backgroundColor = ([selectedProverbs containsObject:proverb])?[UIColor greenColor]:[UIColor blackColor];
+        BOOL selected = [selectedProverbs containsObject:proverb];
+        proverbCell.backgroundColor = selected?[UIColor flatDarkOrangeColor]:[UIColor flatGreenColor];
+        proverbCell.nameLabel.textColor = selected ? [UIColor flatDarkYellowColor]:[UIColor flatYellowColor];
+        proverbCell.nameLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        proverbCell.nameLabel.numberOfLines = 0;
     }
     return cell;
 }

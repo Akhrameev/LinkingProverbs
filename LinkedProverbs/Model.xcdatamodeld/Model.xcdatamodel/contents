@@ -19,8 +19,8 @@
         <relationship name="connections" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Connection" inverseName="proverbs" inverseEntity="Connection" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Proverb" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Connection" positionX="0" positionY="0" width="0" height="0"/>
         <element name="ConnectionType" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Proverb" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>
