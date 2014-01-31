@@ -16,7 +16,25 @@
 
 - (instancetype) init {
     if (self = [super init]) {
-        [MagicalRecord setupCoreDataStackWithStoreNamed:@"Proverbs.sqlite"];
+        NSArray *paths = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+        NSURL *documentPath = [paths lastObject];
+        NSString *name = @"Proverbs";
+        NSString *type = @"sqlite";
+        NSString *component = [NSString stringWithFormat:@"%@.%@", name, type];
+        NSURL *storeURL = [documentPath URLByAppendingPathComponent:component];
+        
+        if (![[NSFileManager defaultManager] fileExistsAtPath:[storeURL path]]) {
+            NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:type];
+            if (path) {
+                NSURL *preloadURL = [NSURL fileURLWithPath:path];
+                NSError* err = nil;
+                
+                if (![[NSFileManager defaultManager] copyItemAtURL:preloadURL toURL:storeURL error:&err]) {
+                    NSLog(@"Error: Unable to copy preloaded database.");
+                }
+            }
+        }
+        [MagicalRecord setupCoreDataStackWithStoreNamed:component];
     }
     return self;
 }
