@@ -12,6 +12,8 @@
 #import "Proverb.h"
 #import "UIColor+MLPFlatColors.h"
 #import "UIImage+Resize.h"
+#import "UIImage+Tint.h"
+#import "UIImageCache.h"
 
 @interface FirstViewController () {
     NSArray *proverbs;
@@ -104,7 +106,13 @@
     NSMutableArray *items = [NSMutableArray array];
     [items addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
     if (selectedProverbs.count >= 1) {
-        UIImage *starButtonImage = [[UIImage imageNamed:@"star plus.png"] resizeToSize:CGSizeMake(48, 48)];
+        NSString *imgName = @"star plus.png";
+        NSString *toolbarImageName = [imgName stringByAppendingString:@" toolbar cached"];
+        UIImage *starButtonImage = [[UIImageCache sharedInstance] imageCachedWithName:toolbarImageName];
+        if (!starButtonImage) {
+            starButtonImage = [[[UIImage imageNamed:imgName] resizeToSize:CGSizeMake(48, 48)] imageTintedWithColor:[UIColor flatYellowColor]];
+            [[UIImageCache sharedInstance] cacheImage:starButtonImage withName:toolbarImageName];
+        }
         UIButton *starButton = [UIButton buttonWithType:UIButtonTypeCustom];
         starButton.bounds = CGRectMake( 0, 0, starButtonImage.size.width, starButtonImage.size.height) ;
         [starButton setImage:starButtonImage forState:UIControlStateNormal];
@@ -114,20 +122,45 @@
         UIBarButtonItem *bookmark = [[UIBarButtonItem alloc] initWithCustomView:starButton];
         [items addObject:bookmark];
     }
+    if (selectedProverbs.count >= 1) {
+        NSString *imgName = @"star minus.png";
+        NSString *toolbarImageName = [imgName stringByAppendingString:@" toolbar cached"];
+        UIImage *starButtonImage = [[UIImageCache sharedInstance] imageCachedWithName:toolbarImageName];
+        if (!starButtonImage) {
+            starButtonImage = [[[UIImage imageNamed:imgName] resizeToSize:CGSizeMake(48, 48)] imageTintedWithColor:[UIColor flatYellowColor]];
+            [[UIImageCache sharedInstance] cacheImage:starButtonImage withName:toolbarImageName];
+        }
+        UIButton *starButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        starButton.bounds = CGRectMake( 0, 0, starButtonImage.size.width, starButtonImage.size.height) ;
+        [starButton setImage:starButtonImage forState:UIControlStateNormal];
+        [starButton addTarget:self
+                       action:@selector(unstarSelectedClick:)
+             forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *bookmark = [[UIBarButtonItem alloc] initWithCustomView:starButton];
+        [items addObject:bookmark];
+    }
     self.toolbar.items = items;
 }
 
-- (void) starSelectedClick:(id)sender {
+- (void) manageStartClick:(BOOL)plus {
     __weak NSMutableSet *selectedProverbsInBlock = selectedProverbs;
     __weak FirstViewController *selfInBlock = self;
     [MagicalRecord saveUsingCurrentThreadContextWithBlock:^(NSManagedObjectContext *localContext) {
         for (Proverb *pr in selectedProverbsInBlock) {
-            [pr setStarred:@(YES)];
+            [pr setStarred:@(plus)];
         }
     } completion:^(BOOL success, NSError *error) {
         if (selectedProverbsInBlock.count) {
             [selfInBlock.collectionView reloadData];
         }
     }];
+}
+
+- (void) starSelectedClick:(id)sender {
+    [self manageStartClick:YES];
+}
+
+- (void) unstarSelectedClick:(id)sender {
+    [self manageStartClick:NO];
 }
 @end

@@ -9,6 +9,7 @@
 #import "UPProverbCollectionCell.h"
 #import "UIImage+Tint.h"
 #import "UIColor+MLPFlatColors.h"
+#import "UIImageCache.h"
 
 @implementation UPProverbCollectionCell
 
@@ -24,7 +25,13 @@
     [super awakeFromNib];
     self.nameLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.nameLabel.numberOfLines = 0;
-    [self.starImage setImage:[self.starImage.image imageTintedWithColor:[UIColor flatDarkYellowColor]]];
+    static NSString *starImageInCellName = @"starImageInCellName";
+    UIImage *img = [[UIImageCache sharedInstance] imageCachedWithName:starImageInCellName];
+    if (!img) {
+        img = [self.starImage.image imageTintedWithColor:[UIColor flatDarkYellowColor]];
+        [[UIImageCache sharedInstance] cacheImage:img withName:starImageInCellName];
+    }
+    [self.starImage setImage:img];
 }
 
 @end
