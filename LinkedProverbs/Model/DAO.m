@@ -54,6 +54,78 @@
     cachedProverbs = nil;
 }
 
+#pragma mark - Connections
+
+- (NSSet *)connectionsOfStandartType:(standartConnectionType)stdType {
+    switch (stdType) {
+        case sctLanguage:
+        {
+            NSDictionary *stdConnectionTypes = [self standartConnectionTypes];
+            ConnectionType *type = [stdConnectionTypes valueForKey:[@(stdType) stringValue]];
+            if (type)
+                return [self connectionsOfType:type];
+            break;
+        }
+            
+        default:
+            break;
+    }
+    return nil;
+}
+
+- (NSSet *)connectionsOfType:(ConnectionType *)type {
+    return type.connections;
+}
+
+- (NSSet *)connectionsWithName:(NSString *)name {
+    NSArray *connections = [Connection MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"self.name as %@", name]];
+    return [NSSet setWithArray:connections];
+}
+
+#pragma mark - ConnectionTypes
+
+- (NSSet *)connectionTypeWithName:(NSString *)name {
+    NSArray *connectionTypes = [ConnectionType MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"self.name as %@", name]];
+    return [NSSet setWithArray:connectionTypes];
+}
+
+#pragma mark StandartConnectionTypes
+
+- (NSArray *) standartConnectionTypesIdsArray {
+    static NSArray *__standartConnectionTypesIdsArray = nil;
+    if (__standartConnectionTypesIdsArray)
+        return __standartConnectionTypesIdsArray;
+    NSMutableArray *tmp = [NSMutableArray arrayWithCapacity:sctCount];
+    for (NSUInteger i = 1; i < sctCount; ++i) {
+        [tmp addObject:@(i)];
+    }
+    __standartConnectionTypesIdsArray = [tmp copy];
+    return __standartConnectionTypesIdsArray;
+}
+
+- (NSDictionary *) standartConnectionTypes {
+    static NSDictionary * __stdConnectionTypes = nil;
+    if (!__stdConnectionTypes) {
+        NSArray *stdConTypes = [ConnectionType MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"self.id in %@", [self standartConnectionTypesIdsArray]]];
+        if (!stdConTypes.count) {
+#warning default creation of objects
+            NSMutableDictionary *mdic = [NSMutableDictionary dictionaryWithCapacity:sctCount];
+            __weak NSMutableDictionary *mdicInBlock = mdic;
+            [MagicalRecord saveUsingCurrentThreadContextWithBlock:^(NSManagedObjectContext *localContext) {
+                ConnectionType *connectionType = [ConnectionType MR_createInContext:localContext];
+                connectionType.name = @"LanguageStandartConnectionType";
+                connectionType.id = @(sctLanguage);
+                if (connectionType) {
+                    [mdicInBlock setValue:connectionType forKey:[@(sctLanguage) stringValue]];
+                }
+            } completion:^(BOOL success, NSError *error) {
+                __stdConnectionTypes = mdicInBlock;
+            }];
+        }
+    }
+    return __stdConnectionTypes;
+}
+
 #pragma mark - Proverbs getters
 
 - (void) proverbsWithReload:(BOOL)reload {

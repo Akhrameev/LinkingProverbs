@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  LinkedProverbs
+
+  Created by Pavel Akhrameev on 31.01.14.
+  Copyright (c) 2014 Pavel Akhrameev. All rights reserved.
+*/
+
+"enterTagName"  = "Введите имя связи для выбранных поговорок";
+"Cancel"        = "Отмена";
+"OK"            = "OK";
+"LanguageStandartConnectionType" = "Язык";

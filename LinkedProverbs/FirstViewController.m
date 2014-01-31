@@ -140,6 +140,23 @@
         [items addObject:unbookmark];
     }
     if (selectedProverbs.count >= 1) {
+        NSString *imgName = @"chat message.png";
+        NSString *toolbarImageName = [imgName stringByAppendingString:@" toolbar cached"];
+        UIImage *addLanguageButtonImage = [[UIImageCache sharedInstance] imageCachedWithName:toolbarImageName];
+        if (!addLanguageButtonImage) {
+            addLanguageButtonImage = [[[UIImage imageNamed:imgName] resizeToSize:CGSizeMake(48, 48)] imageTintedWithColor:[UIColor flatYellowColor]];
+            [[UIImageCache sharedInstance] cacheImage:addLanguageButtonImage withName:toolbarImageName];
+        }
+        UIButton *addLanguageButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        addLanguageButton.bounds = CGRectMake( 0, 0, addLanguageButtonImage.size.width, addLanguageButtonImage.size.height) ;
+        [addLanguageButton setImage:addLanguageButtonImage forState:UIControlStateNormal];
+        [addLanguageButton addTarget:self
+                              action:@selector(addLanguageSelectedClick:)
+                    forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *addlanguage = [[UIBarButtonItem alloc] initWithCustomView:addLanguageButton];
+        [items addObject:addlanguage];
+    }
+    if (selectedProverbs.count >= 1) {
         NSString *imgName = @"plus.png";
         NSString *toolbarImageName = [imgName stringByAppendingString:@" toolbar cached"];
         UIImage *addTagButtonImage = [[UIImageCache sharedInstance] imageCachedWithName:toolbarImageName];
@@ -148,7 +165,7 @@
             [[UIImageCache sharedInstance] cacheImage:addTagButtonImage withName:toolbarImageName];
         }
         UIButton *addTagButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        unstarButton.bounds = CGRectMake( 0, 0, addTagButtonImage.size.width, addTagButtonImage.size.height) ;
+        addTagButton.bounds = CGRectMake( 0, 0, addTagButtonImage.size.width, addTagButtonImage.size.height) ;
         [addTagButton setImage:addTagButtonImage forState:UIControlStateNormal];
         [addTagButton addTarget:self
                          action:@selector(addTagSelectedClick:)
@@ -181,7 +198,29 @@
     [self manageStartClick:NO];
 }
 
-- (void) addTagSelectedClick:(id)sender {
+- (void) addLanguageSelectedClick:(id)sender {
     
 }
+
+- (void) addTagSelectedClick:(id)sender {
+    UIAlertView* dialog = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"enterTagName", @"Введите имя связи для выбранных поговорок") message:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
+    [dialog setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    dialog.delegate = self;
+    dialog.tag = 1533;
+    [dialog show];
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex != 0) {
+        NSString *str = [alertView textFieldAtIndex:0].text;
+        //TODO checkExist or create
+    }
+}
+
+- (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView {
+    return [[alertView textFieldAtIndex:0].text length];
+}
+
 @end

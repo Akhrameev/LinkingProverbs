@@ -139,6 +139,7 @@
 		1A7AC4A3189BF03100A4E99F /* UIImage+rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7AC4A1189BF03100A4E99F /* UIImage+rotate.m */; };
 		1A7AC4A9189BF1AB00A4E99F /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7AC4A8189BF1AB00A4E99F /* UIImage+Tint.m */; };
 		1A7AC4AC189BF41300A4E99F /* UIImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7AC4AB189BF41300A4E99F /* UIImageCache.m */; };
+		1A7AC4AF189BFD3B00A4E99F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A7AC4AE189BFD3B00A4E99F /* Localizable.strings */; };
 		92028375648D4176AA4D50CE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11C789ADDBB4AFD8BBF876A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -297,6 +298,7 @@
 		1A7AC4A8189BF1AB00A4E99F /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tint.m"; sourceTree = "<group>"; };
 		1A7AC4AA189BF41300A4E99F /* UIImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIImageCache.h; path = Cache/UIImage/UIImageCache.h; sourceTree = "<group>"; };
 		1A7AC4AB189BF41300A4E99F /* UIImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIImageCache.m; path = Cache/UIImage/UIImageCache.m; sourceTree = "<group>"; };
+		1A7AC4AE189BFD3B00A4E99F /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		E09C778BF7F849C8A8992595 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		F11C789ADDBB4AFD8BBF876A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -388,6 +390,7 @@
 				1A7AC377189AE05200A4E99F /* InfoPlist.strings */,
 				1A7AC37A189AE05200A4E99F /* main.m */,
 				1A7AC37C189AE05200A4E99F /* LinkedProverbs-Prefix.pch */,
+				1A7AC4AE189BFD3B00A4E99F /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -681,6 +684,7 @@
 				1A7AC488189BE96A00A4E99F /* right.png in Resources */,
 				1A7AC454189BE96A00A4E99F /* down arrow.png in Resources */,
 				1A7AC471189BE96A00A4E99F /* music note 1.png in Resources */,
+				1A7AC4AF189BFD3B00A4E99F /* Localizable.strings in Resources */,
 				1A7AC47D189BE96A00A4E99F /* pin minus.png in Resources */,
 				1A7AC455189BE96A00A4E99F /* down.png in Resources */,
 				1A7AC475189BE96A00A4E99F /* page down.png in Resources */,
