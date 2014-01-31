@@ -21,7 +21,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(proverbsUpdated:) name:DAOProverbsUpdated object:nil];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [[DAO sharedInstance] proverbsWithReload:NO];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,8 +50,16 @@
     return cell;
 }
 
+- (void) proverbsUpdated:(NSNotification *)note {
+    NSArray *updatedProverbs = note.object;
+    if (!updatedProverbs || [updatedProverbs isKindOfClass:[NSArray class]]) {
+        proverbs = updatedProverbs;
+        [self.collectionView reloadData];
+    }
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 70;
+    return proverbs.count;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {

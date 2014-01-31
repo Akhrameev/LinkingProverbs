@@ -84,6 +84,7 @@
 		1A7AC3CC189BB84D00A4E99F /* HZActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZActivityIndicatorView.m; sourceTree = "<group>"; };
 		1A7AC3CF189BBA0F00A4E99F /* UPProverbCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UPProverbCollectionCell.h; path = CollectionView/UPProverbCollectionCell.h; sourceTree = "<group>"; };
 		1A7AC3D0189BBA0F00A4E99F /* UPProverbCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UPProverbCollectionCell.m; path = CollectionView/UPProverbCollectionCell.m; sourceTree = "<group>"; };
+		1A7AC3D2189BCE4400A4E99F /* DAONotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DAONotifications.h; path = Model/DAONotifications.h; sourceTree = "<group>"; };
 		E09C778BF7F849C8A8992595 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		F11C789ADDBB4AFD8BBF876A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -204,6 +205,7 @@
 				1A7AC3BE189BAD3100A4E99F /* Proverb.m */,
 				1A7AC3B9189BAD3000A4E99F /* Connection.h */,
 				1A7AC3BA189BAD3000A4E99F /* Connection.m */,
+				1A7AC3D2189BCE4400A4E99F /* DAONotifications.h */,
 				1A7AC3C5189BAD9C00A4E99F /* DAO.h */,
 				1A7AC3C6189BAD9C00A4E99F /* DAO.m */,
 			);

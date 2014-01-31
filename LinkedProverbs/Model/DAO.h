@@ -12,6 +12,6 @@
 
 + (instancetype) sharedInstance;
 
-- (NSArray *) proverbs;
+- (void) proverbsWithReload:(BOOL)reload;
 
 @end
