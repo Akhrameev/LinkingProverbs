@@ -9,6 +9,7 @@
 #import "FirstViewController.h"
 #import "UPProverbCollectionCell.h"
 #import "DAO.h"
+#import "Proverb.h"
 
 @interface FirstViewController () {
     NSArray *proverbs;
@@ -43,9 +44,11 @@
     static NSString *reuseIdentifier = @"proverbCell";
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     if ([cell isKindOfClass:[UPProverbCollectionCell class]]) {
+        NSAssert(proverbs.count >= indexPath.row, @"Ошибка: индекс за пределами массива");
+        Proverb *proverb = [proverbs objectAtIndex:indexPath.row];
         UPProverbCollectionCell *proverbCell = (UPProverbCollectionCell *)cell;
-        proverbCell.nameLabel.text = @"Имя";
-        proverbCell.textLabel.text = @"Текст";
+        proverbCell.nameLabel.text = proverb.text;
+        proverbCell.textLabel.text = proverb.descriptionText;
     }
     return cell;
 }

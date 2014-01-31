@@ -66,6 +66,23 @@
     NSArray *results = [Proverb MR_findAll];
     if (results.count)
         cachedProverbs = results;
+#warning default creation of objects
+    if (!cachedProverbs.count)
+    {
+        NSArray *proverbs = @[@"Муха села на варенье - вот и все стихотворенье", @"Бежал от дыма и упал в огонь.",
+                              @"Без денег сон крепче.",	@"Без ума голова - ногам пагуба.",
+                              @"Белый заяц бел, да цена ему пятнадцать копеек.",	@"Береги бровь, - глаз цел будет.",
+                              @"Бери в работе умом а не горбом.",	@"Бить дурака - жаль кулака."];
+        NSMutableArray *tmp = [NSMutableArray arrayWithCapacity:proverbs.count];
+        for (NSString *proverb in proverbs) {
+            Proverb *pr = [Proverb MR_createEntity];
+            pr.text = proverb;
+            if (pr)
+                [tmp addObject:pr];
+        }
+        results = tmp;
+    }
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:DAOProverbsUpdated object:results];
 }
 
