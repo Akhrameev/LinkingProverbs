@@ -13,6 +13,7 @@
 
 @interface FirstViewController () {
     NSArray *proverbs;
+    NSMutableSet *selectedProverbs;
 }
 
 @end
@@ -32,6 +33,8 @@
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    proverbs = nil;
+    selectedProverbs = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,11 +47,11 @@
     static NSString *reuseIdentifier = @"proverbCell";
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     if ([cell isKindOfClass:[UPProverbCollectionCell class]]) {
-        NSAssert(proverbs.count >= indexPath.row, @"Ошибка: индекс за пределами массива");
-        Proverb *proverb = [proverbs objectAtIndex:indexPath.row];
+        Proverb *proverb = [self proverbAtIndexPath:indexPath];
         UPProverbCollectionCell *proverbCell = (UPProverbCollectionCell *)cell;
         proverbCell.nameLabel.text = proverb.text;
         proverbCell.textLabel.text = proverb.descriptionText;
+        proverbCell.backgroundColor = ([selectedProverbs containsObject:proverb])?[UIColor greenColor]:[UIColor blackColor];
     }
     return cell;
 }
@@ -67,5 +70,26 @@
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
+}
+
+- (Proverb *) proverbAtIndexPath:(NSIndexPath *)indexPath {
+    NSAssert(proverbs.count >= indexPath.row, @"Ошибка: индекс за пределами массива");
+    return [proverbs objectAtIndex:indexPath.row];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    Proverb *proverb = [self proverbAtIndexPath:indexPath];
+    if (!proverb)
+        return;
+    if ([selectedProverbs containsObject:proverb]) {
+        [selectedProverbs removeObject:proverb];
+    }
+    else {
+        if (!selectedProverbs)
+            selectedProverbs = [NSMutableSet setWithCapacity:1];
+        [selectedProverbs addObject:proverb];
+    }
+    [collectionView reloadItemsAtIndexPaths:@[indexPath]];
 }
 @end
