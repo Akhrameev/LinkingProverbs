@@ -140,6 +140,11 @@
 		1A7AC4A9189BF1AB00A4E99F /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7AC4A8189BF1AB00A4E99F /* UIImage+Tint.m */; };
 		1A7AC4AC189BF41300A4E99F /* UIImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7AC4AB189BF41300A4E99F /* UIImageCache.m */; };
 		1A7AC4AF189BFD3B00A4E99F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A7AC4AE189BFD3B00A4E99F /* Localizable.strings */; };
+		1A7AC51C18A0164200A4E99F /* BHAlbumPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7AC51918A0164200A4E99F /* BHAlbumPhotoCell.m */; };
+		1A7AC51D18A0164200A4E99F /* BHAlbumTitleReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7AC51B18A0164200A4E99F /* BHAlbumTitleReusableView.m */; };
+		1A7AC52318A0165400A4E99F /* BHEmblemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7AC52118A0165400A4E99F /* BHEmblemView.m */; };
+		1A7AC52618A0166200A4E99F /* BHPhotoAlbumLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7AC52518A0166200A4E99F /* BHPhotoAlbumLayout.m */; };
+		1A7AC52E18A0391600A4E99F /* BHCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A7AC52C18A0391600A4E99F /* BHCollectionViewController.m */; };
 		92028375648D4176AA4D50CE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11C789ADDBB4AFD8BBF876A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -299,6 +304,16 @@
 		1A7AC4AA189BF41300A4E99F /* UIImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIImageCache.h; path = Cache/UIImage/UIImageCache.h; sourceTree = "<group>"; };
 		1A7AC4AB189BF41300A4E99F /* UIImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIImageCache.m; path = Cache/UIImage/UIImageCache.m; sourceTree = "<group>"; };
 		1A7AC4AE189BFD3B00A4E99F /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		1A7AC51818A0164200A4E99F /* BHAlbumPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHAlbumPhotoCell.h; sourceTree = "<group>"; };
+		1A7AC51918A0164200A4E99F /* BHAlbumPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHAlbumPhotoCell.m; sourceTree = "<group>"; };
+		1A7AC51A18A0164200A4E99F /* BHAlbumTitleReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHAlbumTitleReusableView.h; sourceTree = "<group>"; };
+		1A7AC51B18A0164200A4E99F /* BHAlbumTitleReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHAlbumTitleReusableView.m; sourceTree = "<group>"; };
+		1A7AC52018A0165400A4E99F /* BHEmblemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHEmblemView.h; sourceTree = "<group>"; };
+		1A7AC52118A0165400A4E99F /* BHEmblemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHEmblemView.m; sourceTree = "<group>"; };
+		1A7AC52418A0166200A4E99F /* BHPhotoAlbumLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHPhotoAlbumLayout.h; sourceTree = "<group>"; };
+		1A7AC52518A0166200A4E99F /* BHPhotoAlbumLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHPhotoAlbumLayout.m; sourceTree = "<group>"; };
+		1A7AC52B18A0391600A4E99F /* BHCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BHCollectionViewController.h; path = CollectionView/BHCollectionViewController.h; sourceTree = "<group>"; };
+		1A7AC52C18A0391600A4E99F /* BHCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BHCollectionViewController.m; path = CollectionView/BHCollectionViewController.m; sourceTree = "<group>"; };
 		E09C778BF7F849C8A8992595 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		F11C789ADDBB4AFD8BBF876A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -363,6 +378,7 @@
 		1A7AC374189AE05200A4E99F /* LinkedProverbs */ = {
 			isa = PBXGroup;
 			children = (
+				1A7AC51718A0160300A4E99F /* View */,
 				1A7AC4AD189BF42000A4E99F /* Cache */,
 				1A7AC49D189BF00600A4E99F /* Ext */,
 				1A7AC3D3189BE95000A4E99F /* Assets */,
@@ -591,6 +607,23 @@
 				1A7AC4AB189BF41300A4E99F /* UIImageCache.m */,
 			);
 			name = Cache;
+			sourceTree = "<group>";
+		};
+		1A7AC51718A0160300A4E99F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1A7AC52418A0166200A4E99F /* BHPhotoAlbumLayout.h */,
+				1A7AC52518A0166200A4E99F /* BHPhotoAlbumLayout.m */,
+				1A7AC52B18A0391600A4E99F /* BHCollectionViewController.h */,
+				1A7AC52C18A0391600A4E99F /* BHCollectionViewController.m */,
+				1A7AC52018A0165400A4E99F /* BHEmblemView.h */,
+				1A7AC52118A0165400A4E99F /* BHEmblemView.m */,
+				1A7AC51818A0164200A4E99F /* BHAlbumPhotoCell.h */,
+				1A7AC51918A0164200A4E99F /* BHAlbumPhotoCell.m */,
+				1A7AC51A18A0164200A4E99F /* BHAlbumTitleReusableView.h */,
+				1A7AC51B18A0164200A4E99F /* BHAlbumTitleReusableView.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -832,16 +865,21 @@
 			files = (
 				1A7AC38B189AE05300A4E99F /* SecondViewController.m in Sources */,
 				1A7AC37F189AE05200A4E99F /* AppDelegate.m in Sources */,
+				1A7AC51C18A0164200A4E99F /* BHAlbumPhotoCell.m in Sources */,
 				1A7AC3B7189BAB9400A4E99F /* Model.xcdatamodeld in Sources */,
 				1A7AC3D1189BBA0F00A4E99F /* UPProverbCollectionCell.m in Sources */,
 				1A7AC388189AE05300A4E99F /* FirstViewController.m in Sources */,
 				1A7AC4A2189BF03100A4E99F /* UIImage+Resize.m in Sources */,
+				1A7AC52E18A0391600A4E99F /* BHCollectionViewController.m in Sources */,
 				1A7AC3BF189BAD3100A4E99F /* Proverb.m in Sources */,
 				1A7AC4AC189BF41300A4E99F /* UIImageCache.m in Sources */,
 				1A7AC3CD189BB84D00A4E99F /* HZActivityIndicatorView.m in Sources */,
 				1A7AC4A9189BF1AB00A4E99F /* UIImage+Tint.m in Sources */,
 				1A7AC3C3189BAD3100A4E99F /* ConnectionType.m in Sources */,
+				1A7AC51D18A0164200A4E99F /* BHAlbumTitleReusableView.m in Sources */,
+				1A7AC52618A0166200A4E99F /* BHPhotoAlbumLayout.m in Sources */,
 				1A7AC3C7189BAD9C00A4E99F /* DAO.m in Sources */,
+				1A7AC52318A0165400A4E99F /* BHEmblemView.m in Sources */,
 				1A7AC37B189AE05200A4E99F /* main.m in Sources */,
 				1A7AC4A3189BF03100A4E99F /* UIImage+rotate.m in Sources */,
 				1A7AC3BB189BAD3000A4E99F /* Connection.m in Sources */,

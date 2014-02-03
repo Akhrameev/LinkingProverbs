@@ -3,7 +3,7 @@
     <entity name="Connection" representedClassName="Connection" syncable="YES">
         <attribute name="id" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="proverbs" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Proverb" inverseName="connections" inverseEntity="Proverb" syncable="YES"/>
+        <relationship name="proverbs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Proverb" inverseName="connections" inverseEntity="Proverb" syncable="YES"/>
         <relationship name="type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ConnectionType" inverseName="connections" inverseEntity="ConnectionType" syncable="YES"/>
     </entity>
     <entity name="ConnectionType" representedClassName="ConnectionType" syncable="YES">

@@ -62,8 +62,25 @@
         {
             NSDictionary *stdConnectionTypes = [self standartConnectionTypes];
             ConnectionType *type = [stdConnectionTypes valueForKey:[@(stdType) stringValue]];
-            if (type)
+            if (type) {
+                NSSet *connections = [self connectionsOfType:type];
+                if (!connections.count) {
+#warning default creation of objects
+                    [MagicalRecord saveUsingCurrentThreadContextWithBlock:^(NSManagedObjectContext *localContext) {
+                        for (int i = 0; i < 2; ++i) {
+                            Connection *connection = [Connection MR_createInContext:localContext];
+                            connection.name = (i == 0) ? @"Русский" : @"English";
+                            connection.id = @(i);
+                            connection.type = [[self standartConnectionTypes] valueForKey:[@(sctLanguage) stringValue]];
+                        }
+                    } completion:^(BOOL success, NSError *error) {
+                        Connection *rus = [Connection MR_findFirstByAttribute:@"id" withValue:@(0)];
+                        NSArray *proverbs = [Proverb MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"self.id <= 6"]];//Пусть первые шесть будут русскими
+                        [rus addProverbs:[NSSet setWithArray:proverbs]];
+                    }];
+                }
                 return [self connectionsOfType:type];
+            }
             break;
         }
             
@@ -121,6 +138,14 @@
             } completion:^(BOOL success, NSError *error) {
                 __stdConnectionTypes = mdicInBlock;
             }];
+        }
+        else {
+            NSMutableDictionary *stdConTypesM = [NSMutableDictionary dictionaryWithCapacity:stdConTypes.count];
+            for (ConnectionType *type in stdConTypes) {
+                NSString *key = [type.id stringValue];
+                [stdConTypesM setValue:type forKey:key];
+            }
+            __stdConnectionTypes = stdConTypesM;
         }
     }
     return __stdConnectionTypes;

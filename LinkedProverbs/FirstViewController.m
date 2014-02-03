@@ -216,6 +216,7 @@
     if (buttonIndex != 0) {
         NSString *str = [alertView textFieldAtIndex:0].text;
         //TODO checkExist or create
+        NSSet *connections = [[DAO sharedInstance] connectionsWithName:str];
     }
 }
 
