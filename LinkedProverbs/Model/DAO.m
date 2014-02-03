@@ -35,6 +35,10 @@
             }
         }
         [MagicalRecord setupCoreDataStackWithStoreNamed:component];
+        //temp
+        if (![ConnectionType MR_findAll].count) {
+            [self createDefaultProverbs];
+        }
     }
     return self;
 }
@@ -66,18 +70,7 @@
                 NSSet *connections = [self connectionsOfType:type];
                 if (!connections.count) {
 #warning default creation of objects
-                    [MagicalRecord saveUsingCurrentThreadContextWithBlock:^(NSManagedObjectContext *localContext) {
-                        for (int i = 0; i < 2; ++i) {
-                            Connection *connection = [Connection MR_createInContext:localContext];
-                            connection.name = (i == 0) ? @"Русский" : @"English";
-                            connection.id = @(i);
-                            connection.type = [[self standartConnectionTypes] valueForKey:[@(sctLanguage) stringValue]];
-                        }
-                    } completion:^(BOOL success, NSError *error) {
-                        Connection *rus = [Connection MR_findFirstByAttribute:@"id" withValue:@(0)];
-                        NSArray *proverbs = [Proverb MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"self.id <= 6"]];//Пусть первые шесть будут русскими
-                        [rus addProverbs:[NSSet setWithArray:proverbs]];
-                    }];
+                    
                 }
                 return [self connectionsOfType:type];
             }
@@ -128,16 +121,7 @@
 #warning default creation of objects
             NSMutableDictionary *mdic = [NSMutableDictionary dictionaryWithCapacity:sctCount];
             __weak NSMutableDictionary *mdicInBlock = mdic;
-            [MagicalRecord saveUsingCurrentThreadContextWithBlock:^(NSManagedObjectContext *localContext) {
-                ConnectionType *connectionType = [ConnectionType MR_createInContext:localContext];
-                connectionType.name = @"LanguageStandartConnectionType";
-                connectionType.id = @(sctLanguage);
-                if (connectionType) {
-                    [mdicInBlock setValue:connectionType forKey:[@(sctLanguage) stringValue]];
-                }
-            } completion:^(BOOL success, NSError *error) {
-                __stdConnectionTypes = mdicInBlock;
-            }];
+            
         }
         else {
             NSMutableDictionary *stdConTypesM = [NSMutableDictionary dictionaryWithCapacity:stdConTypes.count];
@@ -166,22 +150,53 @@
 #warning default creation of objects
     if (!cachedProverbs.count)
     {
-        [MagicalRecord saveUsingCurrentThreadContextWithBlock:^(NSManagedObjectContext *localContext) {
-            NSArray *proverbs = @[@"Муха села на варенье - вот и все стихотворенье", @"Бежал от дыма и упал в огонь.",
-                                  @"Без денег сон крепче.",	@"Без ума голова - ногам пагуба.",
-                                  @"Белый заяц бел, да цена ему пятнадцать копеек.",	@"Береги бровь, - глаз цел будет.",
-                                  @"Бери в работе умом а не горбом.",	@"Бить дурака - жаль кулака."];
-            for (NSString *proverb in proverbs) {
-                Proverb *pr = [Proverb MR_createInContext:localContext];
-                pr.text = proverb;
-            }
-        } completion:^(BOOL success, NSError *error) {
-            NSLog(@"%@", error);
-            [[NSNotificationCenter defaultCenter] postNotificationName:DAOProverbsUpdated object:results];
-        }];
+        
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:DAOProverbsUpdated object:results];
+}
+
+#pragma mark - default Creation
+
+- (void) createDefaultProverbs {
+    [MagicalRecord saveUsingCurrentThreadContextWithBlock:^(NSManagedObjectContext *localContext) {
+        NSArray *proverbs = @[@"Муха села на варенье - вот и все стихотворенье", @"Бежал от дыма и упал в огонь.",
+                              @"Без денег сон крепче.",	@"Без ума голова - ногам пагуба.",
+                              @"Белый заяц бел, да цена ему пятнадцать копеек.",	@"Береги бровь, - глаз цел будет.",
+                              @"Бери в работе умом а не горбом.",	@"Бить дурака - жаль кулака."];
+        for (NSString *proverb in proverbs) {
+            Proverb *pr = [Proverb MR_createInContext:localContext];
+            pr.text = proverb;
+        }
+    } completion:^(BOOL success, NSError *error) {
+        [self createDefaultConnectionType];
+    }];
+}
+
+- (void) createDefaultConnectionType {
+    [MagicalRecord saveUsingCurrentThreadContextWithBlock:^(NSManagedObjectContext *localContext) {
+        ConnectionType *connectionType = [ConnectionType MR_createInContext:localContext];
+        connectionType.name = @"LanguageStandartConnectionType";
+        connectionType.id = @(sctLanguage);
+    } completion:^(BOOL success, NSError *error) {
+        [self createDefaultConnections];
+    }];
+}
+
+- (void) createDefaultConnections {
+    [MagicalRecord saveUsingCurrentThreadContextWithBlock:^(NSManagedObjectContext *localContext) {
+        for (int i = 0; i < 2; ++i) {
+            Connection *connection = [Connection MR_createInContext:localContext];
+            connection.name = (i == 0) ? @"Русский" : @"English";
+            connection.id = @(i);
+            connection.type = [[self standartConnectionTypes] valueForKey:[@(sctLanguage) stringValue]];
+            if (!i) {
+                NSArray *proverbs = [Proverb MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"self.id <= 6"]];//Пусть первые шесть будут русскими
+                [connection addProverbs:[NSSet setWithArray:proverbs]];
+            }
+        }
+    } completion:^(BOOL success, NSError *error) {
+    }];
 }
 
 @end

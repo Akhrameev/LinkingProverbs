@@ -91,7 +91,8 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
 {
     NSAssert (self.albums.count > section, @"Игаче выход за границы массива");
     Connection *connection = [self.albums objectAtIndex:section];
-    return connection.proverbs.count;
+    NSSet *proverbs = connection.proverbs;
+    return proverbs.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
